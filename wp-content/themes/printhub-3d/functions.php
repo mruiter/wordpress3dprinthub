@@ -32,7 +32,7 @@ add_action( 'after_setup_theme', 'printhub_3d_setup' );
 
 function printhub_3d_scripts() {
     wp_enqueue_style( 'printhub-3d-style', get_stylesheet_uri(), array(), '1.0.0' );
-    wp_enqueue_script( 'printhub-3d-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_script( 'printhub-3d-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'printhub_3d_scripts' );
 

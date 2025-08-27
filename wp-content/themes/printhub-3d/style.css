@@ -33,11 +33,69 @@ header, footer {
   padding: 1rem 2rem;
 }
 
-nav a {
+nav.primary-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav.primary-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: var(--secondary-color);
+  border-radius: 4px;
   color: #ffffff;
-  margin-right: 1rem;
   text-decoration: none;
   font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+nav.primary-menu a:hover,
+nav.primary-menu a:focus {
+  background: var(--accent-color);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.screen-reader-text {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav.primary-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  nav.primary-menu.open {
+    display: flex;
+  }
+
+  nav.primary-menu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav.primary-menu a {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .hero {
@@ -87,5 +145,30 @@ nav a {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.project-banner {
+  position: relative;
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.project-banner .banner-track {
+  display: flex;
+  width: 300%;
+  animation: banner-slide 15s infinite;
+}
+
+.project-banner img {
+  width: 100%;
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+@keyframes banner-slide {
+  0%,20% { transform: translateX(0); }
+  33%,53% { transform: translateX(-100%); }
+  66%,86% { transform: translateX(-200%); }
+  100% { transform: translateX(-200%); }
 }
 
