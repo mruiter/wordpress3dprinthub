@@ -16,7 +16,11 @@
     }
     ?>
   </div>
-  <nav class="primary-menu">
+  <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <span class="screen-reader-text"><?php esc_html_e( 'Menu', 'printhub-3d' ); ?></span>
+    &#9776;
+  </button>
+  <nav id="site-navigation" class="primary-menu" aria-label="<?php esc_attr_e( 'Primary Menu', 'printhub-3d' ); ?>">
     <?php
       wp_nav_menu( array(
         'theme_location' => 'menu-1',

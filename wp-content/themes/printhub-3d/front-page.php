@@ -12,6 +12,14 @@ get_header();
   <a href="#quote" class="button"><?php esc_html_e( 'Vraag een offerte aan', 'printhub-3d' ); ?></a>
 </section>
 
+<section class="project-banner">
+  <div class="banner-track">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/project1.svg" alt="<?php esc_attr_e( 'Project 1', 'printhub-3d' ); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/project2.svg" alt="<?php esc_attr_e( 'Project 2', 'printhub-3d' ); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/project3.svg" alt="<?php esc_attr_e( 'Project 3', 'printhub-3d' ); ?>">
+  </div>
+</section>
+
 <section id="quote" class="quote-form">
   <?php echo do_shortcode( '[printhub-3d-quote]' ); ?>
 </section>

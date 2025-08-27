@@ -1,12 +1,21 @@
-(function($){
-  $(document).ready(function(){
-    // Smooth scroll for internal links
-    $('a[href*="#"]').on('click', function(e){
-      var target = $(this.getAttribute('href'));
-      if(target.length){
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
         e.preventDefault();
-        $('html, body').stop().animate({scrollTop: target.offset().top}, 1000);
+        target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
-})(jQuery);
+
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('site-navigation');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+});
